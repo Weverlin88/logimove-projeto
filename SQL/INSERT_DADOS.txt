@@ -1,0 +1,17 @@
+-- Inserir Motoristas
+INSERT INTO Drivers (Nome, CNH, Endereço, Contato)
+VALUES 
+('Carlos Silva', '12345678901', 'Rua A, 100', '(31) 99999-0001'),
+('Ana Souza', '98765432109', 'Rua B, 200', '(31) 99999-0002');
+
+-- Inserir Clientes
+INSERT INTO Clients (Nome, Empresa, Endereço, Contato)
+VALUES 
+('Empresa X', 'XPTO Ltda.', 'Avenida Central, 300', '(31) 98888-0003'),
+('Empresa Y', 'ACME Corp.', 'Avenida Sul, 400', '(31) 97777-0004');
+
+-- Inserir Pedidos
+INSERT INTO Orders (ClientID, DriverID, DetalhesPedido, DataEntrega, Status)
+VALUES 
+(1, 1, 'Entrega de 10 caixas de peças automotivas', '2024-10-30', 'Pendente'),
+(2, 2, 'Entrega de equipamentos eletrônicos', '2024-10-28', 'Em Trânsito');

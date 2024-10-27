@@ -1,0 +1,31 @@
+-- Tabela de Motoristas
+CREATE TABLE Drivers (
+    DriverID INT IDENTITY(1,1) PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    CNH VARCHAR(20) NOT NULL UNIQUE,
+    Endereço VARCHAR(200),
+    Contato VARCHAR(50) NOT NULL,
+    DataCadastro DATETIME DEFAULT GETDATE()
+);
+
+-- Tabela de Clientes
+CREATE TABLE Clients (
+    ClientID INT IDENTITY(1,1) PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Empresa VARCHAR(100),
+    Endereço VARCHAR(200),
+    Contato VARCHAR(50) NOT NULL,
+    DataCadastro DATETIME DEFAULT GETDATE()
+);
+
+-- Tabela de Pedidos
+CREATE TABLE Orders (
+    OrderID INT IDENTITY(1,1) PRIMARY KEY,
+    ClientID INT NOT NULL,
+    DriverID INT NOT NULL,
+    DetalhesPedido TEXT NOT NULL,
+    DataEntrega DATE NOT NULL,
+    Status VARCHAR(50) NOT NULL,
+    CONSTRAINT FK_Orders_Clients FOREIGN KEY (ClientID) REFERENCES Clients(ClientID),
+    CONSTRAINT FK_Orders_Drivers FOREIGN KEY (DriverID) REFERENCES Drivers(DriverID)
+);

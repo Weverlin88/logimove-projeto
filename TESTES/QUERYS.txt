@@ -1,0 +1,18 @@
+1. Listar todos os motoristas
+SELECT * FROM Drivers;
+
+2. Verificar os pedidos de um cliente específico
+SELECT O.OrderID, C.Nome AS Cliente, D.Nome AS Motorista, O.Status
+FROM Orders O
+JOIN Clients C ON O.ClientID = C.ClientID
+JOIN Drivers D ON O.DriverID = D.DriverID
+WHERE C.Nome = 'Empresa X';
+
+3. Atualizar o status de um pedido
+UPDATE Orders
+SET Status = 'Entregue'
+WHERE OrderID = 1;
+
+4. Excluir um cliente e todos os seus pedidos
+DELETE FROM Orders WHERE ClientID = 2;
+DELETE FROM Clients WHERE ClientID = 2;
